@@ -7,7 +7,7 @@ services:
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: rootpassword
-      MYSQL_DATABASE: mydatabase
+      MYSQL_DATABASE: UserManager
       MYSQL_USER: myuser
       MYSQL_PASSWORD: mypassword
     ports:
@@ -20,24 +20,34 @@ services:
     command: fief run-server
     env_file:
       - .env
-    depends_on:
-      - postgres
-      - redis
-    labels:
-      - "traefik.enable=true"
-      # Set your domain name here
-      - "traefik.http.routers.fief.rule=Host(`fief.mydomain.com`)"
-      - "traefik.http.routers.fief.entrypoints=websecure"
-      - "traefik.http.routers.fief.tls.certresolver=myresolver"
+    environment:
+      DATABASE_TYPE: "MYSQL"
+      DATABASE_HOST: "mysql_container"
+      DATABASE_PORT: "3306"
+      DATABASE_USERNAME: "root"
+      DATABASE_PASSWORD: "rootpassword"
+      DATABASE_NAME: "UserManager"
+    #   REDIS_URL: "redis://redis:6379"
+    # depends_on:
+    #   - mysql
+    #   - redis
 
-  fief-worker:
-    image: ghcr.io/fief-dev/fief:latest
-    command: fief run-worker -p 1 -t 1
-    env_file:
-      - .env
-    depends_on:
-      - postgres
-      - redis
+  # fief-worker:
+  #   image: ghcr.io/fief-dev/fief:latest
+  #   command: fief run-worker -p 1 -t 1
+  #   env_file:
+  #     - .env
+  #   depends_on:
+  #     - mysql
+  #     - redis
+    
+  # redis:
+  #   image: redis:alpine
+  #   command: redis-server --save 60 1 --loglevel warning
+  #   volumes:
+  #     - redis-data:/data
+
 
 volumes:
   mysql_data:
+  redis-data:

@@ -1,8 +1,13 @@
+import os
 from fastapi import FastAPI
-from routers import appointment, auth, service, user
+import uvicorn
+from lavacao_express.modules.user.router import account
+
+# for path, subpath, files in os.walk("./lava")
 
 app = FastAPI()
-app.include_router(appointment.router, prefix="/api/v1/appointment")
-app.include_router(auth.router, prefix="/api/v1/auth")
-app.include_router(service.router, prefix="/api/v1/service")
-app.include_router(user.router, prefix="/api/v1/user")
+app.include_router(account.router, prefix="/api/account")
+
+
+if __name__ == "__main__":
+    uvicorn.run(app=app, port=8080)
