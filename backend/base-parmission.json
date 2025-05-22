@@ -1,0 +1,31 @@
+{
+    "permissions": [
+        "appointment.own:READ",
+        "appointment.own:WRITE",
+        "appointment.schedule:WRITE",
+        "appointment.schedule:READ",
+        "appointment.availability:READ",
+        "service:READ",
+        "vehicle.type:READ",
+        "professional:READ",
+        "profile.data:READ",
+        "profile.data:WRITE"
+    ],
+    "groups": [
+        {
+            "name": "CLIENT",
+            "permissions": [
+                "appointment.own:READ",
+                "appointment.own:WRITE",
+                "appointment.schedule:WRITE",
+                "appointment.schedule:READ",
+                "appointment.availability:READ",
+                "service:READ",
+                "vehicle.type:READ",
+                "professional:READ",
+                "profile.data:READ",
+                "profile.data:WRITE"
+            ]
+        }
+    ]
+}
