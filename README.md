@@ -184,19 +184,3 @@ REFRESH_TOKEN_EXPIRE_MINUTES=240
 
 **Contato**: Giovani Liskoski Zanini - [giovanilzanini@hotmail.com](mailto:giovanilzanini@hotmail.com)  
 **Licença**: GNU GPL v3.0
-```
-
-### Características deste arquivo único:
-1. **Organização Bilingue**: Português primeiro, inglês como referência
-2. **Seção Técnica Dedicada**: Docker e configurações separadas
-3. **Formatação Consistente**: Mantém todos os blocos de código
-4. **Navegação Facilitada**: Links âncora entre seções
-5. **Versão Compacta**: Remove redundâncias mantendo informações essenciais
-
-### Como usar:
-1. Copie todo o conteúdo para um arquivo `README.md`
-2. Substitua os placeholders (seus dados, URLs)
-3. Adicione seu logo no topo
-4. Personalize conforme necessidades específicas
-
-Deseja que eu adicione mais alguma seção específica ou ajuste a organização?
